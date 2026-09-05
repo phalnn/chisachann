@@ -84,7 +84,15 @@
             text-shadow: 0 1px 6px rgba(0,0,0,0.4);
         }
 
-        .btn-tiktok {
+        /* KHỐI CÁC NÚT MẠNG XÃ HỘI */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn-social {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,21 +106,45 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            margin-bottom: 24px;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             transition: 0.25s ease;
         }
 
+        .btn-social:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Nút TikTok */
         .btn-tiktok:hover {
             border-color: #fe2c55;
             background: rgba(32, 35, 48, 0.95);
-            transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(254, 44, 85, 0.3);
         }
-
         .btn-tiktok i {
             color: #fe2c55;
+            font-size: 1.2rem;
+        }
+
+        /* Nút Discord */
+        .btn-discord:hover {
+            border-color: #5865F2;
+            background: rgba(32, 35, 48, 0.95);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.35);
+        }
+        .btn-discord i {
+            color: #5865F2;
+            font-size: 1.2rem;
+        }
+
+        /* Nút YouTube */
+        .btn-youtube:hover {
+            border-color: #FF0000;
+            background: rgba(32, 35, 48, 0.95);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.35);
+        }
+        .btn-youtube i {
+            color: #FF0000;
             font-size: 1.2rem;
         }
 
@@ -453,18 +485,32 @@
 <body>
 
 <div class="container">
-    <!-- KHỐI 1: PROFILE & DONATE LY TÀ TỮA -->
+    <!-- KHỐI 1: PROFILE, MẠNG XÃ HỘI & DONATE LY TÀ TỮA -->
     <div class="card profile-section">
         <div class="avatar-wrap">
             <img src="avatar.jpg" alt="Avatar" class="avatar" onerror="this.src='https://ui-avatars.com/api/?name=phalnnn&background=fe2c55&color=fff'">
         </div>
 
         <h1 class="channel-name">@phalnnn</h1>
-        <p class="bio">kênh TikTok của mình 💕</p>
+        <p class="bio">kênh của mình 💕</p>
 
-        <a href="https://www.tiktok.com/@phalnnn" target="_blank" rel="noopener noreferrer" class="btn-tiktok">
-            <i class="fa-brands fa-tiktok"></i> Đến Kênh TikTok Của Tôi
-        </a>
+        <!-- DANH SÁCH NÚT MẠNG XÃ HỘI -->
+        <div class="social-links">
+            <!-- Nút TikTok -->
+            <a href="https://www.tiktok.com/@phalnnn" target="_blank" rel="noopener noreferrer" class="btn-social btn-tiktok">
+                <i class="fa-brands fa-tiktok"></i> Đến Kênh TikTok Của Tôi
+            </a>
+
+            <!-- Nút Server Discord -->
+            <a href="https://discord.gg/tCgPMRaqek" target="_blank" rel="noopener noreferrer" class="btn-social btn-discord">
+                <i class="fa-brands fa-discord"></i> Tham Gia Server Discord
+            </a>
+
+            <!-- Nút Kênh YouTube -->
+            <a href="https://youtube.com/@phalnnn?si=4p5A05Y50ROdZH04" target="_blank" rel="noopener noreferrer" class="btn-social btn-youtube">
+                <i class="fa-brands fa-youtube"></i> Kênh YouTube Của Tôi
+            </a>
+        </div>
 
         <!-- KHUNG DONATE -->
         <div class="donate-box">
@@ -607,13 +653,10 @@
 </div>
 
 <script>
-    // ============================================================
-    // CẤU HÌNH TÀI KHOẢN TECHCOMBANK:
-    // ============================================================
+    // CẤU HÌNH TÀI KHOẢN TECHCOMBANK
     const BANK_ID = "TCB";
     const ACCOUNT_NO = "19074758620012";
     const ACCOUNT_NAME = "PHAM NGUYEN BAO LAN";
-    // ============================================================
 
     const checkboxes = document.querySelectorAll('.map-cb');
     const totalDisplay = document.getElementById('totalDisplay');
